@@ -1,6 +1,19 @@
-<h1>Create Post</h1>
-<form action="/user/createPost" method="post">
-  <label for="input">Data</label>
-  <input type="text" name="data" />
-  <button type="submit">Create Post</button>
-</form>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<h1 class="text-3xl font-bold underline">Create Post</h1>
+<div class="flex w-full items-center space-x-2 md:w-1/3">
+  <form action="/createPost" method="post">
+    <input
+      class="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+      type="text"
+      name="data"
+      placeholder="Write your post here..."
+    />
+    <button
+      type="submit"
+      class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+    >
+      Create Post
+    </button>
+  </form>
+</div>

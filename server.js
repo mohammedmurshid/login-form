@@ -12,7 +12,7 @@ const db = require("./config/db");
 const User = require("./models/users");
 
 const indexRouter = require("./routes/index");
-const userRouter = require("./routes/user");
+// const userRouter = require("./routes/user");
 
 db();
 
@@ -37,7 +37,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
-app.use("/user", userRouter);
+// app.use("/user", userRouter);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("server is up and running on port" + PORT));
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log("server is up and running on port " + PORT));

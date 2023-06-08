@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-const dataSchema = mongoose.Schema({
-  data: {
-    type: String,
+const dataSchema = mongoose.Schema(
+  {
+    data: {
+      type: String,
+    },
   },
-});
+  { timestamps: true }
+);
 
 const userSchema = mongoose.Schema(
   {
