@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="/public/css/style.css" />
+<style>
+  * {
+    margin: 15px;
+    padding: 0;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-between {
+    justify-content: space-between;
+  }
+
+  ul li {
+    list-style: none;
+  }
+</style>
+
+
+<a href="/home">Back</a>
+
+<div class="container">
+  <div class="wrapper">
+    <form id="myForm" action="/sectionSub" method="post">
+      <label for="">select section</label>
+   <select name="sectionData" >
+    <option value="bidaya">Bidaya</option>
+    <option value="ula">Ula</option>
+    <option value="thaniya">Thaniya</option>
+    <option value="thanaviya">Thanaviya</option>
+  </select>
+<button type="submit">select</button>
+    </form>
+   
+    <div class="card-container flex flex-between">
+      <!-- CARD-1 -->
+      <div>
+            <form action="" method="GET">
+    <div class="card flex-column">
+        <h3>Select Contestant</h3>
+        <div style="display: flex;">
+           <input id="searchInput" type="search" placeholder="search Contestants" />
+           <button  type="submit">Search</button>
+        </div>
+    </div>
+ </form>
+    <hr>
+     <div>
+        <ul id="Contestants">
+       <% constestent.forEach((constestent)=>{ %>
+        <li > <%-  constestent.name  %></li>
+        <a class="btn btn-primary" href="/<%= constestent.id %>">View</a>
+      
+       <% }); %>
+        </ul>
+   </div>
+      </div>
+    
+        
+ 
+      <!-- CARD-1 -->
+
+     

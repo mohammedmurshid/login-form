@@ -1,3 +1,20 @@
+<style>
+  .btn {
+      
+    display: block;
+  
+    margin: 5PX ;
+    background: #4e9caf;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    text-decoration: none;
+  
+  }
+</style>
 <div style="display: flex; justify-content: space-between; align-items: center">
   <h1>Hi, <%= name %></h1>
   <form action="/logout" method="POST">
@@ -17,25 +34,14 @@
 </div>
 
 <a
-  href="/createPost"
-  style="
-    display: block;
-    width: 115px;
-    height: 25px;
-    background: #4e9caf;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    line-height: 25px;
-    text-decoration: none;
-  "
-  >Create Post</a
+  href="/Add-contestent"
+ class="btn"
+  >ADD CONTESTENT DATA </a
 >
-
+<a
+  href="/regProgram"
+ class="btn"
+  >CONTESTENT REGISTRATION </a
+>
 <h2>Displaying the posts made by the current user</h2>
 
-<% data.forEach(post => { %>
-<p><%- post.data %></p>
-<% }) %>

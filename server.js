@@ -12,11 +12,15 @@ const db = require("./config/db");
 const User = require("./models/users");
 
 const indexRouter = require("./routes/index");
-// const userRouter = require("./routes/user");
+const adminRouter = require("./routes/admin");
 
 db();
 
+//ejs setup
+// app.use(expressLayouts)
+// app.set('layout', './layouts/full-width')
 app.set("view-engine", "ejs");
+
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
@@ -37,7 +41,10 @@ passport.deserializeUser(User.deserializeUser());
 app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
-// app.use("/user", userRouter);
+app.use("/admin", adminRouter);
 
-const PORT = process.env.PORT || 4000;
+const PORT =  6040;
 app.listen(PORT, () => console.log("server is up and running on port " + PORT));
+
+
+ 
