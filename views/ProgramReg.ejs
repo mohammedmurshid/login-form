@@ -1,14 +1,24 @@
-<h1><%= constestent.name %></h1>
- <br>
- <br>
- <br>
-  <% programs.forEach((programs)=>{ %>
-        <li ondblclick="CLICK" ><%-  programs.name  %></li>
 
-       <% }); %>
 
-    <script>
-    function CLICK() {
-        console.log('hai')
-       }
-    </script>
+<div style="display: flex;">
+  <div><h1><%= constestent.name %></h1>
+<br />
+<br />
+<br />
+<% programs.forEach((programs)=>{ %>
+
+<ul>
+  <li><form action="/regProgram/<%= constestent.id %>?_method=PUT" method="post">
+    <input value="<%= programs.name %>" name="<%= programs.name %> ">
+    
+  </li>
+</ul>
+
+<% }); %>
+</div>
+  <div>
+    <% programData.forEach((programs)=>{ %>
+      <h2><%= programs.name %></h2>
+      <% }); %>
+  </div>
+</div>

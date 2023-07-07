@@ -127,12 +127,50 @@ router.post("/sectionSub", async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+
+
+router.get('/regProgram/:id', async (req, res) => {
+
+
   const constestent = await ContestentData.findById(req.params.id);
   const sd = constestent.sectionData;
+  const programData = constestent.programData;
   const programs = await Program.find({ sectionData: `${sd}` });
+  programData.forEach(element => {
+    console.log( "program data of con "+ element);
+  });
+  
+  res.render("ProgramReg.ejs", {
+    constestent: constestent,
+    programs: programs,
+    programData: programData
+  });
 
-  res.render("ProgramReg.ejs", { constestent: constestent, programs : programs});
+
+ })
+
+
+
+router.put('/regProgram/:id', async (req,res)=>{
+  
+    
+   
+  
+    const programValue = req.body 
+   try {
+    const constestent = await ContestentData.findById(req.params.id);
+    console.log(req.body )
+    // constestent.programData.unshift(
+    //   req.body
+    // )
+    await constestent.save(
+      res.redirect(`/regProgram/${constestent.id}`)
+    )
+   } catch (error) {
+    res.redirect('/');
+   }
+  
+  
 })
 
 
